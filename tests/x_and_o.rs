@@ -4,16 +4,21 @@
 // The method must return a boolean and be case insensitive.
 // The string can contain any char.
 
-
 pub fn xo(string: &'static str) -> bool {
-    string.chars().filter(|c| {
-        let x = c.to_lowercase().to_string();
-        x == "x"
-    }).count() ==
-    string.chars().filter(|c| {
-        let o = c.to_lowercase().to_string();
-        o == "o"
-    }).count()
+    string
+        .chars()
+        .filter(|c| {
+            let x = c.to_lowercase().to_string();
+            x == "x"
+        })
+        .count()
+        == string
+            .chars()
+            .filter(|c| {
+                let o = c.to_lowercase().to_string();
+                o == "o"
+            })
+            .count()
 }
 
 #[cfg(test)]

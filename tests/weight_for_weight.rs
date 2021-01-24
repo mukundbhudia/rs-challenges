@@ -14,13 +14,9 @@
 // string ordered by "weights" of these numbers?
 
 pub fn weight_for_weight(s: &str) -> String {
-    let mut numbers = s.split_whitespace()
-        .map(|x| (
-            x, x.chars()
-                .map(|y| y.to_digit(10)
-                .unwrap())
-                .sum())
-            )
+    let mut numbers = s
+        .split_whitespace()
+        .map(|x| (x, x.chars().map(|y| y.to_digit(10).unwrap()).sum()))
         .collect::<Vec<(&str, u32)>>();
     numbers.sort_by_key(|k| k.1);
     let numbers = numbers
@@ -35,7 +31,13 @@ mod weight_for_weight_tests {
     use super::*;
     #[test]
     fn general_tests() {
-        assert_eq!(weight_for_weight("103 123 4444 99 2000"), "2000 103 123 4444 99");
-        assert_eq!(weight_for_weight("2000 10003 1234000 44444444 9999 11 11 22 123"), "2000 11 11 10003 22 123 1234000 44444444 9999");
+        assert_eq!(
+            weight_for_weight("103 123 4444 99 2000"),
+            "2000 103 123 4444 99"
+        );
+        assert_eq!(
+            weight_for_weight("2000 10003 1234000 44444444 9999 11 11 22 123"),
+            "2000 11 11 10003 22 123 1234000 44444444 9999"
+        );
     }
 }

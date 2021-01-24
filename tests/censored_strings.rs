@@ -6,13 +6,13 @@ pub fn uncensor(sentence: &str, chars_to_censor: &str) -> String {
 
     sentence
         .chars()
-        .map(|c|
+        .map(|c| {
             if c == '*' {
                 chars_to_censor.remove(0)
             } else {
                 c
             }
-        )
+        })
         .collect::<String>()
 }
 
@@ -21,7 +21,10 @@ mod censored_strings_tests {
     use super::*;
     #[test]
     fn general_tests() {
-        assert_eq!(uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"), "Where did my vowels go?");
+        assert_eq!(
+            uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"),
+            "Where did my vowels go?"
+        );
         assert_eq!(uncensor("abcd", ""), "abcd");
         assert_eq!(uncensor("*PP*RC*S*", "UEAE"), "UPPERCASE");
     }

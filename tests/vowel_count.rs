@@ -5,13 +5,9 @@
 // The input string will only consist of lower case letters and/or spaces.
 
 pub fn vowel_count(string: &str) -> usize {
-    string.chars().fold(0, |n, i| {
-        if "aeiou".contains(i) {
-            n + 1
-        } else {
-            n
-        }
-    })
+    string
+        .chars()
+        .fold(0, |n, i| if "aeiou".contains(i) { n + 1 } else { n })
 }
 
 #[cfg(test)]

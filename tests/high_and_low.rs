@@ -16,14 +16,8 @@ pub fn high_and_low(numbers: &str) -> String {
         .split_whitespace()
         .map(|c| c.parse::<i32>().unwrap())
         .collect::<Vec<_>>();
-    let max = numbers
-        .iter()
-        .max()
-        .unwrap();
-    let min = numbers
-        .iter()
-        .min()
-        .unwrap();
+    let max = numbers.iter().max().unwrap();
+    let min = numbers.iter().min().unwrap();
     format!("{} {}", max, min)
 }
 

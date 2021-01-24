@@ -6,8 +6,6 @@
 // letter be missing. The length of the array will always be at least 2.
 // The array will always contain letters in only one case.
 
-
-
 pub fn find_missing_letter(chars: &[char]) -> char {
     let mut alphabet = "abcdefghijklmnopqrstuvwxyz".to_string();
     let first_char = chars[0];

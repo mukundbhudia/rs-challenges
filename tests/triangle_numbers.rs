@@ -1,7 +1,7 @@
 // From: https://edabit.com/challenge/M7Xzr3ez5xBPTu3bq
 
 pub fn triangle(a: u32) -> u32 {
-    (1..a+1).sum()
+    (1..a + 1).sum()
 }
 
 #[cfg(test)]

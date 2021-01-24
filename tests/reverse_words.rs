@@ -15,10 +15,7 @@ pub fn reverse_words(string_to_reverse: &str) -> String {
         }
     }
 
-    let last_word = temp_word_buffer
-        .chars()
-        .rev()
-        .collect::<String>();
+    let last_word = temp_word_buffer.chars().rev().collect::<String>();
 
     output.push_str(&last_word);
     output
@@ -29,9 +26,15 @@ mod reverse_words_tests {
     use super::*;
     #[test]
     fn general_tests() {
-        assert_eq!(reverse_words("The quick brown fox jumps over the lazy dog."), "ehT kciuq nworb xof spmuj revo eht yzal .god");
+        assert_eq!(
+            reverse_words("The quick brown fox jumps over the lazy dog."),
+            "ehT kciuq nworb xof spmuj revo eht yzal .god"
+        );
         assert_eq!(reverse_words("apple"), "elppa");
-        assert_eq!(reverse_words("a b c d"),"a b c d");
-        assert_eq!(reverse_words("double  spaced  words"), "elbuod  decaps  sdrow");
+        assert_eq!(reverse_words("a b c d"), "a b c d");
+        assert_eq!(
+            reverse_words("double  spaced  words"),
+            "elbuod  decaps  sdrow"
+        );
     }
 }

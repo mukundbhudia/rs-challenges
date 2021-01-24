@@ -8,7 +8,6 @@
 // in the original string.
 // All letters will be lowercase and all inputs will be valid.
 
-
 pub fn high(input: &str) -> &str {
     let alphabet = "abcdefghijklmnopqrstuvwxyz".to_string();
     let mut scores = input

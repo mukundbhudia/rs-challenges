@@ -1,7 +1,7 @@
 // From: https://edabit.com/challenge/Gs2p3whk4D7noHRTe
 
 pub fn quadratic_solutions(a: i32, b: i32, c: i32) -> u32 {
-    let discriminant = b*b - 4*a*c;
+    let discriminant = b * b - 4 * a * c;
     if discriminant > 0 {
         2
     } else if discriminant < 0 {

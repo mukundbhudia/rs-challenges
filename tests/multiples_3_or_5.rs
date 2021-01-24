@@ -5,14 +5,7 @@
 // Note: If the number is a multiple of both 3 and 5, only count it once.
 
 pub fn multiples_3_or_5(num: i32) -> i32 {
-    (1..num)
-        .fold(0, |n, i| {
-           if i % 3 == 0 || i % 5 == 0 {
-               n + i
-           } else {
-               n
-           }
-        })
+    (1..num).fold(0, |n, i| if i % 3 == 0 || i % 5 == 0 { n + i } else { n })
 }
 
 #[cfg(test)]

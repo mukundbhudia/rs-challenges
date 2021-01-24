@@ -1,7 +1,7 @@
 // From: https://www.codewars.com/kata/55c45be3b2079eccff00010f/train/rust
 
 // Your task is to sort a given string. Each word in the string will
-// contain a single number. This number is the position the word 
+// contain a single number. This number is the position the word
 // should have in the result.
 
 // Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
@@ -37,7 +37,10 @@ mod weight_for_weight_tests {
     #[test]
     fn general_tests() {
         assert_eq!(word_order("is2 Thi1s T4est 3a"), "Thi1s is2 3a T4est");
-        assert_eq!(word_order("4of Fo1r pe6ople g3ood th5e the2"), "Fo1r the2 g3ood 4of th5e pe6ople");
+        assert_eq!(
+            word_order("4of Fo1r pe6ople g3ood th5e the2"),
+            "Fo1r the2 g3ood 4of th5e pe6ople"
+        );
         assert_eq!(word_order(""), "");
     }
 }

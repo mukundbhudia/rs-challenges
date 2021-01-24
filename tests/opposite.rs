@@ -2,9 +2,8 @@
 
 // Very simple, given a number, find its opposite.
 
-
 pub fn opposite(number: i32) -> i32 {
-    number * -1     // Also can do `-number`
+    number * -1 // Also can do `-number`
 }
 
 #[cfg(test)]

@@ -10,10 +10,13 @@ pub fn count_duplicates(text: &str) -> u32 {
     for c in text.chars() {
         let lowercase_char = c.to_lowercase().to_string();
         if c.is_alphanumeric()
-            && text.matches(|b: char| 
-                c.to_lowercase().to_string() == b.to_string()
-                || c.to_uppercase().to_string() == b.to_string()
-            ).count() > 1
+            && text
+                .matches(|b: char| {
+                    c.to_lowercase().to_string() == b.to_string()
+                        || c.to_uppercase().to_string() == b.to_string()
+                })
+                .count()
+                > 1
             && !duplicates.contains(&lowercase_char)
         {
             duplicates.push_str(&lowercase_char);
