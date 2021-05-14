@@ -88,6 +88,21 @@ mod tests {
     }
 
     #[test]
+    fn test_map_insert_new_item_method() {
+        let mut my_records = generate_my_records();
+        check_map_insert("fifth".to_string(), &mut my_records);
+        let first = my_records.get("first").unwrap();
+        let fifth = my_records.get("fifth").unwrap();
+
+        assert_eq!(fifth.name, "".to_string());
+        assert_eq!(fifth.grade, 'A');
+        assert_eq!(fifth.age, 21);
+
+        assert_eq!(first.grade, 'B');
+        assert_eq!(first.age, 20);
+    }
+
+    #[test]
     fn test_map_get_mut_method() {
         let mut my_records = generate_my_records();
         check_map_get_mut("second".to_string(), &mut my_records);
@@ -97,6 +112,21 @@ mod tests {
         assert_eq!(second.name, "Bob".to_string());
         assert_eq!(second.grade, 'A');
         assert_eq!(second.age, 21);
+
+        assert_eq!(first.grade, 'B');
+        assert_eq!(first.age, 20);
+    }
+
+    #[test]
+    fn test_map_get_mut_new_item_method() {
+        let mut my_records = generate_my_records();
+        check_map_get_mut("fifth".to_string(), &mut my_records);
+        let first = my_records.get("first").unwrap();
+        let fifth = my_records.get("fifth").unwrap();
+
+        assert_eq!(fifth.name, "".to_string());
+        assert_eq!(fifth.grade, 'A');
+        assert_eq!(fifth.age, 21);
 
         assert_eq!(first.grade, 'B');
         assert_eq!(first.age, 20);
