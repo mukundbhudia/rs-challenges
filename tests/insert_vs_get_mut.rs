@@ -60,11 +60,14 @@ pub fn check_map_get_mut(map: HashMap<String, Record>) {}
 mod tests {
     use super::*;
     #[test]
-    fn returns_expected() {
+    fn test_map_insert_method() {
         let mut my_records = generate_my_records();
-        let my_records_expected = check_map_insert(&mut my_records);
+        check_map_insert(&mut my_records);
+        let first = my_records.get("first").unwrap();
         let second = my_records.get("second").unwrap();
         assert_eq!(second.grade, 'A');
         assert_eq!(second.age, 21);
+        assert_eq!(first.grade, 'B');
+        assert_eq!(first.age, 20);
     }
 }
