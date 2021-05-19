@@ -4,17 +4,22 @@
 // values (parse from the left please) in order of appearance that add up to form the sum.
 
 pub fn sum_pairs(ints: &[i8], s: i8) -> Option<(i8, i8)> {
-    let mut pairs_found: Vec<((i8, i8), usize)> = Vec::new();
+    let mut best_pair: Option<((i8, i8), usize)> = None;
     for i in 0..ints.len() {
-        for j in i..ints.len() {
-            if ints[i] + ints[j] == s && i != j {
-                pairs_found.push(((ints[i], ints[j]), j));
+        for j in i + 1..ints.len() {
+            if ints[i] + ints[j] == s {
+                if let Some(x) = best_pair {
+                    if j < x.1 {
+                        best_pair = Some(((ints[i], ints[j]), j));
+                    }
+                } else {
+                    best_pair = Some(((ints[i], ints[j]), j));
+                }
             }
         }
     }
 
-    pairs_found.sort_by_key(|key| key.1);
-    if let Some(x) = pairs_found.first() {
+    if let Some(x) = best_pair {
         Some(x.0)
     } else {
         None
