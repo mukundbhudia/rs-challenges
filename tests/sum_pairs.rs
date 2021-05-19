@@ -4,22 +4,17 @@
 // values (parse from the left please) in order of appearance that add up to form the sum.
 
 pub fn sum_pairs(ints: &[i8], s: i8) -> Option<(i8, i8)> {
-    // let output = None;
-    let mut pairs_found: Vec<((i8, i8), (usize, usize))> = Vec::new();
-    for (a, i) in ints.iter().enumerate() {
-        for (b, j) in ints.iter().enumerate() {
-            if i + j == s && a != b {
-                println!("a: {}, b: {},", a, b);
-                // return Some((*i, *j));
-                pairs_found.push(((*i, *j), (a, b)));
+    let mut pairs_found: Vec<((i8, i8), usize)> = Vec::new();
+    for i in 0..ints.len() {
+        for j in i..ints.len() {
+            if ints[i] + ints[j] == s && i != j {
+                pairs_found.push(((ints[i], ints[j]), j));
             }
         }
     }
-    println!("pairs: {:?}", pairs_found);
-    pairs_found.sort_by_key(|k| k.1 .0); // TODO: fix this sorting
-    pairs_found.reverse();
-    println!("pairs: {:?}", pairs_found);
-    if let Some(x) = pairs_found.pop() {
+
+    pairs_found.sort_by_key(|key| key.1);
+    if let Some(x) = pairs_found.first() {
         Some(x.0)
     } else {
         None
