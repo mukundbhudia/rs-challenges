@@ -3,9 +3,9 @@
 // Very simple, given a number, find its opposite.
 
 pub fn rgb(r: i32, g: i32, b: i32) -> String {
-    let r = r.min(255).max(0);
-    let g = g.min(255).max(0);
-    let b = b.min(255).max(0);
+    let r = r.clamp(0, 255);
+    let g = g.clamp(0, 255);
+    let b = b.clamp(0, 255);
 
     format!("{:02X}{:02X}{:02X}", r, g, b)
 }
