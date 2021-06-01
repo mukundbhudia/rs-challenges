@@ -8,7 +8,7 @@ pub fn digital_root(n: i64) -> i64 {
         .sum::<u32>()
         .into();
 
-    match sum > 10 {
+    match sum > 9 {
         true => digital_root(sum),
         false => sum,
     }
@@ -23,5 +23,7 @@ mod digital_root_tests {
         assert_eq!(digital_root(942), 6);
         assert_eq!(digital_root(132189), 6);
         assert_eq!(digital_root(493193), 2);
+        assert_eq!(digital_root(10), 1);
+        assert_eq!(digital_root(11), 2);
     }
 }
